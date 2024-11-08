@@ -1,0 +1,242 @@
+[
+  {
+    "question": "Welches Organ im Körper ist für die Blutreinigung und Entgiftung verantwortlich?",
+    "options": ["Herz", "Lunge", "Leber", "Darm"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Welches Vitamin ist besonders wichtig für die Knochenstärke?",
+    "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Welche Lebensmittelgruppe enthält die meisten Ballaststoffe?",
+    "options": [
+      "Obst und Gemüse",
+      "Fleisch und Eier",
+      "Milchprodukte",
+      "Öle und Fette"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Wie viele Muskeln hat der menschliche Körper ungefähr?",
+    "options": ["200", "500", "650", "1000"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Welche Übung ist besonders gut für die Stärkung des Herz-Kreislauf-Systems?",
+    "options": ["Schwimmen", "Gewichtheben", "Yoga", "Meditation"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welches Vitamin unterstützt die Aufnahme von Eisen im Körper?",
+    "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin K"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Wie viele Liter Blut pumpt das Herz pro Minute im Ruhezustand durchschnittlich?",
+    "options": ["1-2 Liter", "4-5 Liter", "10-12 Liter", "15-20 Liter"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welche dieser Nährstoffe ist eine gute Quelle für Protein?",
+    "options": ["Vollkornbrot", "Fisch und Eier", "Orangen", "Olivenöl"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Was ist die empfohlene tägliche Menge an Schlaf für Erwachsene?",
+    "options": ["4-5 Stunden", "6-8 Stunden", "8-10 Stunden", "10-12 Stunden"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welches dieser Organe ist Teil des Verdauungssystems?",
+    "options": ["Lunge", "Niere", "Magen", "Herz"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Welche Lebensmittel enthalten viele Omega-3-Fettsäuren?",
+    "options": [
+      "Weißbrot und Butter",
+      "Fettreiche Fische wie Lachs",
+      "Zucker und Süßigkeiten",
+      "Rotes Fleisch"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welcher Teil des menschlichen Körpers hat die meisten Knochen?",
+    "options": ["Hände", "Füße", "Wirbelsäule", "Schädel"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welcher Sport verbessert die Flexibilität am meisten?",
+    "options": ["Basketball", "Yoga", "Schwimmen", "Gewichtheben"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welcher Nährstoff hilft dem Körper bei der Zellregeneration?",
+    "options": ["Kohlenhydrate", "Fette", "Proteine", "Zucker"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Wie viele Kammern hat das menschliche Herz?",
+    "options": ["2", "4", "6", "8"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welches Organ ist für die Sauerstoffaufnahme und Kohlendioxidabgabe verantwortlich?",
+    "options": ["Leber", "Herz", "Lunge", "Niere"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Welcher Vitaminmangel führt zu Skorbut?",
+    "options": ["Vitamin B12", "Vitamin C", "Vitamin D", "Vitamin A"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welches Organ wird hauptsächlich vom Hormon Insulin beeinflusst?",
+    "options": ["Leber", "Magen", "Niere", "Bauchspeicheldrüse"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Welches dieser Lebensmittel enthält die meisten Antioxidantien?",
+    "options": ["Brokkoli", "Rotes Fleisch", "Weißbrot", "Süßigkeiten"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Wie viele Knochen hat ein erwachsener menschlicher Körper?",
+    "options": ["200", "206", "300", "156"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welches Organ reguliert den Blutzuckerspiegel im Körper?",
+    "options": ["Leber", "Bauchspeicheldrüse", "Niere", "Magen"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welche Mineralstoffe sind entscheidend für die Knochengesundheit?",
+    "options": [
+      "Kalzium und Magnesium",
+      "Natrium und Kalium",
+      "Eisen und Zink",
+      "Kupfer und Phosphor"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welche Sportart verbessert sowohl die Ausdauer als auch die Muskelkraft?",
+    "options": ["Schwimmen", "Schach", "Tanzen", "Golf"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welcher Muskel ist der größte im menschlichen Körper?",
+    "options": [
+      "Bizeps",
+      "Quadrizeps",
+      "Gluteus Maximus (Gesäßmuskel)",
+      "Trapezmuskel"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Welche Lebensmittel sind besonders reich an Vitamin K?",
+    "options": [
+      "Grünes Blattgemüse",
+      "Rotes Fleisch",
+      "Milchprodukte",
+      "Zitrusfrüchte"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Wie viel Prozent des menschlichen Körpers besteht aus Wasser?",
+    "options": ["30-40%", "50-60%", "70-80%", "90%"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Was ist die Hauptfunktion der roten Blutkörperchen?",
+    "options": [
+      "Infektionen bekämpfen",
+      "Nährstoffe transportieren",
+      "Sauerstoff im Körper transportieren",
+      "Hormone freisetzen"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Welche Übung ist besonders gut für die Verbesserung des Gleichgewichts?",
+    "options": ["Gewichtheben", "Laufen", "Tai Chi", "Schwimmen"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Welches Vitamin hilft, das Immunsystem zu stärken?",
+    "options": ["Vitamin D", "Vitamin C", "Vitamin A", "Vitamin K"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welche dieser Übungen ist ideal, um die Rückenmuskulatur zu stärken?",
+    "options": ["Liegestütze", "Rudern", "Radfahren", "Kniebeugen"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welcher Teil des Körpers ist für das Hören verantwortlich?",
+    "options": ["Augen", "Ohren", "Nase", "Mund"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welche Lebensmittelgruppe ist eine ausgezeichnete Quelle für gesunde Fette?",
+    "options": [
+      "Nüsse und Samen",
+      "Zuckerhaltige Snacks",
+      "Vollkornprodukte",
+      "Früchte"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welcher Muskel ist für das Heben des Arms zuständig?",
+    "options": ["Bizeps", "Deltoidmuskel", "Trizeps", "Pectoralis major"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welche dieser Lebensmittel sind reich an Eisen?",
+    "options": [
+      "Spinat und rotes Fleisch",
+      "Zitrusfrüchte",
+      "Milch und Käse",
+      "Butter und Brot"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welches Hormon reguliert den Schlaf-Wach-Rhythmus?",
+    "options": ["Insulin", "Melatonin", "Adrenalin", "Testosteron"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welches Vitamin unterstützt die Hautgesundheit und das Sehvermögen?",
+    "options": ["Vitamin A", "Vitamin D", "Vitamin E", "Vitamin K"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welcher Muskel ist der Hauptverantwortliche für das Kauen?",
+    "options": ["Bizeps", "Masseter", "Pectoralis", "Quadrizeps"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welches Lebensmittel ist besonders reich an Vitamin B12?",
+    "options": ["Äpfel", "Fisch und Fleisch", "Kartoffeln", "Nüsse"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Welcher Sport eignet sich am besten zur Fettverbrennung?",
+    "options": ["Joggen", "Yoga", "Schach", "Radfahren"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welches Organ ist das größte im menschlichen Körper?",
+    "options": ["Herz", "Leber", "Haut", "Lunge"],
+    "correctAnswer": 2
+  }
+]
