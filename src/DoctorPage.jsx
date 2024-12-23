@@ -1,18 +1,28 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Navbar from './Navbar';
-import AnnouncementPlayer from './AnnouncementPlayer';
+import axios from 'axios';
+import { Trash2, RefreshCw } from 'lucide-react';
 
-function DoctorPage({ doctor, rooms, updatePatientName, fetchRooms }) {
+function DoctorPage({ doctor, rooms, updatePatientName }) {
   const [patientName, setPatientName] = useState('');
-  const [language, setLanguage] = useState('ar-SA');
+  const [language, setLanguage] = useState('de-DE');
+  const [isPlaying, setIsPlaying] = useState(false);
   const inputRef = useRef(null);
 
   useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+    inputRef.current.focus();
+  }, [rooms]);
 
   const handlePatientNameChange = (event) => {
     setPatientName(event.target.value);
+  };
+  const patientToRecall = async (roomId, patientName, language) => {
+    await updatePatientName(roomId, patientName, language);
+  };
+
+  const deletePatient = (roomId) => {
+    updatePatientName(roomId, '');
+    setPatientName('');
   };
 
   const handleLanguageChange = (selectedLanguage) => {
@@ -27,144 +37,285 @@ function DoctorPage({ doctor, rooms, updatePatientName, fetchRooms }) {
 
     const doctorRoom = rooms.find((room) => room && !room.patientName);
     if (!doctorRoom) {
-      alert(
-        'Löschen Sie einen Patienten, bevor Sie einen neuen Patienten hinzufügen.'
-      );
+      alert('Löschen Sie einen Patienten, bevor Sie einen neuen hinzufügen.');
       return;
     }
 
     updatePatientName(doctorRoom.id, patientName, language);
     setPatientName('');
+    setTimeout(() => {
+      deletePatient(doctorRoom.id);
+    }, 180000);
   };
 
-  const patientToRecall = async (roomId, patientName, language) => {
-    await updatePatientName(roomId, patientName, language);
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      addPatient();
+    }
   };
 
-  const deletePatient = (roomId) => {
-    updatePatientName(roomId, '');
-    setPatientName('');
+  // Language display names
+  const languageNames = {
+    'de-DE': 'DE',
+    'ar-SA': 'AR',
+    'en-GB': 'EN',
+    'tr-TR': 'TR',
+    'ru-RU': 'RU',
+    'pl-PL': 'PL',
   };
 
-  const languageButtonClasses = (selectedLang) =>
-    `flex items-center px-6 py-2 border border-gray-200 text-xl rounded ${
-      language === selectedLang
-        ? 'bg-red-600 text-white'
-        : 'bg-gray-100 text-gray-900'
-    } dark:border-gray-700 ml-4`;
+  const startAnnouncement = async () => {
+    setIsPlaying(true);
+    setTimeout(() => {
+      setIsPlaying(false);
+    }, 110000);
+
+    await axios.get(
+      'https://fa-team-waitlist-2.onrender.com/announcements/vaccination/start'
+    );
+  };
+
+  const stopAnnouncement = async () => {
+    setIsPlaying(false);
+    await axios.get(
+      'https://fa-team-waitlist-2.onrender.com/announcements/vaccination/stop'
+    );
+  };
 
   return (
-    <>
+    <div className="min-h-screen bg-cyan-650">
       <Navbar />
-      {doctor?.roomNumber !== 9 ? (
-        <div className="flex flex-col items-center bg-gradient-to-b from-[#007490] to-[#004060] text-white p-2 md:p-8 w-full min-h-screen">
-          <h2 className="text-xl md:text-2xl font-bold mb-2 md:mb-4 text-center">
-            {`Behandlungszimmer Nr: ${
-              doctor?.roomNumber === 9 ? 'Anmeldung' : doctor?.roomNumber
-            }`}
-          </h2>
+
+      <div className="max-w-2xl mx-auto px-4 py-8">
+        {/* Room Number Header */}
+        <h2 className="text-2xl font-bold text-center mb-6 text-gray-100">
+          {`${
+            doctor?.roomNumber === 9
+              ? 'Labor'
+              : doctor?.roomNumber === 10
+              ? 'Anmeldung '
+              : 'Wartezimmer: ' + doctor?.roomNumber
+          }`}
+        </h2>
+
+        {/* Patient Input Section */}
+        <div className="bg-cyan-600 shadow-md rounded-lg p-6 mb-6">
           <input
             type="text"
-            placeholder="Patientennummer | Name eingeben"
-            className="border-2 border-white rounded-md px-2 md:px-4 py-1 md:py-2 text-base md:text-lg shadow-sm placeholder-gray-400 w-11/12 md:w-[420px]"
+            placeholder="Wartenummer | Name eingeben + (↵ Enter) zu hinzufügen"
+            className="
+              w-full px-4 py-3 
+              border-2 border-gray-300 rounded-md 
+              text-lg 
+              focus:outline-none focus:ring-2 focus:ring-blue-500
+              mb-4
+            "
             value={patientName}
             onChange={handlePatientNameChange}
+            onKeyDown={handleKeyDown}
             required
             ref={inputRef}
           />
-          <div className="flex flex-col items-center justify-center my-4">
-            <div className="text-lg md:text-2xl mb-2 md:mb-4 text-center">
-              Wählen Sie die Ansagesprache
+
+          {/* Language Selection */}
+          <div className="mb-4">
+            <div className="text-lg font-semibold mb-2 text-center">
+              Ansagesprache
             </div>
             <div className="flex flex-wrap justify-center gap-2">
-              {['ar-SA', 'de-DE', 'en-GB', 'tr-TR', 'ru-RU', 'pl-PL'].map(
-                (lang) => (
-                  <button
-                    key={lang}
-                    onClick={() => handleLanguageChange(lang)}
-                    className={`flex items-center justify-center w-[100px] ${languageButtonClasses(
-                      lang
-                    )}`}
-                  >
-                    {lang === 'ar-SA'
-                      ? 'Arabisch'
-                      : lang === 'de-DE'
-                      ? 'Deutsch'
-                      : lang === 'en-GB'
-                      ? 'English'
-                      : lang === 'tr-TR'
-                      ? 'Turkish'
-                      : lang === 'ru-RU'
-                      ? 'Russisch'
-                      : 'Polnisch'}
-                  </button>
-                )
-              )}
+              {Object.keys(languageNames).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => handleLanguageChange(lang)}
+                  className={`
+                    px-4 py-2 rounded-md 
+                    transition-colors duration-200
+                    ${
+                      language === lang
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    }
+                  `}
+                >
+                  {languageNames[lang]}
+                </button>
+              ))}
             </div>
           </div>
-          <div className="flex flex-col items-center mt-2 md:mt-4">
-            <button
-              onClick={addPatient}
-              className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md shadow-lg font-bold text-base md:text-lg transition-all duration-300"
-            >
-              Patient hinzufügen
-            </button>
-          </div>
-          <hr className="w-full my-4" />
-          <div className="flex flex-col items-center mt-4 md:mt-8 w-full px-4">
-            <h3 className="text-lg md:text-xl font-bold text-center">
-              Patienten warten liste
-            </h3>
-            <ul className="w-full mt-2 md:mt-4">
-              {rooms.map((room) => (
-                <li
-                  key={room.id}
-                  className="mt-2 md:mt-4 flex flex-col items-center space-y-2 w-full"
+
+          {/* Add Patient Button */}
+          <button
+            onClick={addPatient}
+            className="
+              block mx-auto
+              w-[50%] py-3 
+              bg-green-500 hover:bg-green-600 
+              text-white 
+              rounded-md 
+              text-lg font-bold
+              transition-colors duration-300
+              focus:outline-none focus:ring-2 focus:ring-green-400
+            "
+          >
+            Hinzufügen
+          </button>
+          <div className="mt-4">
+            {doctor?.roomNumber === 11 && (
+              <div className="flex justify-between ">
+                <button
+                  disabled={isPlaying}
+                  onClick={startAnnouncement}
+                  className={`${
+                    isPlaying
+                      ? 'bg-gray-500 cursor-not-allowed'
+                      : 'bg-green-500 hover:bg-green-700'
+                  } text-white text-lg font-bold px-4 py-2 rounded-md mr-2`}
                 >
-                  {room.patientName && (
-                    <div className="w-full flex flex-col md:flex-row items-center space-y-2 md:space-y-0 bg-cyan-800 p-4 md:p-6 border border-white rounded-md">
-                      <div className="flex flex-col md:flex-row text-base md:text-4xl font-bold w-full justify-between items-center">
-                        <span className="text-center md:text-left">
-                          Wartende Nummer Patient:
-                        </span>
-                        <span className="text-center md:text-left w-1/2">
+                  Start Ansage
+                </button>
+                <button
+                  disabled={!isPlaying}
+                  onClick={stopAnnouncement}
+                  className=" mr-2 block mx-auto
+              w-[200px] py-3 
+              bg-red-500 hover:bg-red-600 
+              text-white 
+              rounded-md 
+              text-lg font-bold
+              transition-colors duration-300
+              focus:outline-none focus:ring-2 focus:ring-red-400"
+                >
+                  Stop Ansage
+                </button>
+                <button
+                  onClick={() =>
+                    axios.get(`https://fa-team-waitlist-2.onrender.com/reset`)
+                  }
+                  className="mr-2 block mx-auto
+              w-[100px] py-3 
+              bg-yellow-500 hover:bg-yellow-600 
+              text-white 
+              rounded-md 
+              text-lg font-bold
+              transition-colors duration-300
+              focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                >
+                  {' '}
+                  Reset
+                </button>
+                <button
+                  onClick={() =>
+                    axios.get(`https://fa-team-waitlist-2.onrender.com/refresh`)
+                  }
+                  className='"block mx-auto
+              w-[100px] py-3 
+              bg-blue-500 hover:bg-blue-600 
+              text-white 
+              rounded-md 
+              text-lg font-bold
+              transition-colors duration-300
+              focus:outline-none focus:ring-2 focus:ring-yellow-400"'
+                >
+                  Reload
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Patient Waiting List */}
+        <div>
+          <div className="space-y-4">
+            {rooms
+              .filter((room) => room.patientName)
+              .map(
+                (room) =>
+                  room.patientName && (
+                    <div key={room.id}>
+                      <div
+                        className="
+                      bg-cyan-600 p-4 rounded-lg 
+                      shadow-sm flex flex-col md:flex-row 
+                      justify-between items-center
+                      transition-all duration-300
+                      hover:shadow-md
+                    "
+                      >
+                        <div className="text-4xl font-semibold mb-2 md:mb-0">
                           {room.patientName}
-                        </span>
-                      </div>
-                      <div className="flex flex-col md:flex-row gap-2 mt-2 md:mt-0">
-                        <button
-                          onClick={() => {
-                            deletePatient(room.id);
-                            setTimeout(() => {
-                              patientToRecall(
+                        </div>
+
+                        <div className="flex space-x-2">
+                          <button
+                            onClick={() => {
+                              deletePatient(
                                 room.id,
                                 room.patientName,
                                 language
                               );
-                            }, 1000);
-                          }}
-                          className="bg-sky-500 hover:bg-sky-700 text-white px-4 py-2 rounded-md font-bold text-base md:text-lg transition-all duration-300"
-                        >
-                          Rückruf
-                        </button>
-                        <button
-                          onClick={() => deletePatient(room.id)}
-                          className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded-md font-bold text-base md:text-lg transition-all duration-300"
-                        >
-                          Erledigt
-                        </button>
+                              setTimeout(() => {
+                                patientToRecall(
+                                  room.id,
+                                  room.patientName,
+                                  language
+                                );
+                              }, 2000);
+                            }}
+                            className="
+                          bg-green-500 hover:bg-green-600
+                          text-white 
+                          px-4 py-2 
+                          font-bold
+                          rounded-md 
+                          flex items-center 
+                          transition-colors duration-300
+                        "
+                          >
+                            <RefreshCw className="mr-2" size={18} />
+                            Rückruf
+                          </button>
+
+                          <button
+                            onClick={() => deletePatient(room.id)}
+                            className="
+                          bg-red-500 hover:bg-red-600 
+                          text-white 
+                          font-bold
+                          px-4 py-2 
+                          rounded-md 
+                          flex items-center 
+                          transition-colors duration-300
+                        "
+                          >
+                            <Trash2 className="mr-2" size={18} />
+                            Erledigt
+                          </button>
+                        </div>
                       </div>
+                      <p className="text-gray-300 font-bold text-[16px]">
+                        * Die Wartenummer wird nach dem Besuch des Patienten
+                        automatisch gelöscht.
+                      </p>
                     </div>
-                  )}
-                </li>
-              ))}
-            </ul>
+                  )
+              )}
           </div>
         </div>
-      ) : (
-        <AnnouncementPlayer />
-      )}
-    </>
+      </div>
+      <footer className="bg-gray-300 p-4 text-center text-sm text-gray-600 fixed bottom-0 left-0 w-full">
+        <div>
+          Für Support, Probleme oder Verbesserungsvorschläge wenden Sie sich
+          bitte an das MVZ El-Sharafi Entwicklungsteam:&nbsp;
+          <a
+            className="underline font-bold"
+            href="mailto:develop@mvz-elsharafi.de"
+          >
+            develop@mvz-elsharafi.de
+          </a>
+        </div>
+      </footer>
+    </div>
   );
 }
 

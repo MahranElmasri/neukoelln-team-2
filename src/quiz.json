@@ -1,242 +1,382 @@
 [
   {
-    "question": "Welches Organ im Körper ist für die Blutreinigung und Entgiftung verantwortlich?",
-    "options": ["Herz", "Lunge", "Leber", "Darm"],
-    "correctAnswer": 2
-  },
-  {
-    "question": "Welches Vitamin ist besonders wichtig für die Knochenstärke?",
-    "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E"],
-    "correctAnswer": 2
-  },
-  {
-    "question": "Welche Lebensmittelgruppe enthält die meisten Ballaststoffe?",
+    "question": "Was ist die effektivste Methode, um die Verbreitung von Infektionskrankheiten zu verhindern?",
     "options": [
-      "Obst und Gemüse",
-      "Fleisch und Eier",
-      "Milchprodukte",
-      "Öle und Fette"
+      "Regelmäßiges Händewaschen mit Wasser und Seife",
+      "Nur Händedesinfektionsmittel verwenden",
+      "Das Haus nicht verlassen",
+      "Täglich Vitamine einnehmen"
     ],
     "correctAnswer": 0
   },
   {
-    "question": "Wie viele Muskeln hat der menschliche Körper ungefähr?",
-    "options": ["200", "500", "650", "1000"],
-    "correctAnswer": 2
+    "question": "Was ist die Hauptursache für Bluthochdruck?",
+    "options": [
+      "Chronischer Stress",
+      "Zu viel Salz konsumieren",
+      "Keine körperliche Bewegung",
+      "Alles oben Genannte"
+    ],
+    "correctAnswer": 3
   },
   {
-    "question": "Welche Übung ist besonders gut für die Stärkung des Herz-Kreislauf-Systems?",
-    "options": ["Schwimmen", "Gewichtheben", "Yoga", "Meditation"],
+    "question": "Wie schützt man die Haut am besten vor schädlicher Sonnenstrahlung?",
+    "options": [
+      "Sonnencreme mit Lichtschutzfaktor (SPF) 30 oder höher verwenden",
+      "Sich in der Mittagssonne aufhalten",
+      "Viel Wasser trinken",
+      "Feuchtigkeitscremes verwenden"
+    ],
     "correctAnswer": 0
   },
   {
-    "question": "Welches Vitamin unterstützt die Aufnahme von Eisen im Körper?",
-    "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin K"],
-    "correctAnswer": 1
+    "question": "Was ist ein frühes Anzeichen für Vitamin-D-Mangel?",
+    "options": [
+      "Muskel- und Knochenschmerzen",
+      "Hautverfärbungen",
+      "Gewichtszunahme",
+      "Trockener Mund"
+    ],
+    "correctAnswer": 0
   },
   {
-    "question": "Wie viele Liter Blut pumpt das Herz pro Minute im Ruhezustand durchschnittlich?",
-    "options": ["1-2 Liter", "4-5 Liter", "10-12 Liter", "15-20 Liter"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welche dieser Nährstoffe ist eine gute Quelle für Protein?",
-    "options": ["Vollkornbrot", "Fisch und Eier", "Orangen", "Olivenöl"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Was ist die empfohlene tägliche Menge an Schlaf für Erwachsene?",
+    "question": "Wie viele Stunden Schlaf werden für Erwachsene täglich empfohlen, um gesund zu bleiben?",
     "options": ["4-5 Stunden", "6-8 Stunden", "8-10 Stunden", "10-12 Stunden"],
     "correctAnswer": 1
   },
   {
-    "question": "Welches dieser Organe ist Teil des Verdauungssystems?",
-    "options": ["Lunge", "Niere", "Magen", "Herz"],
-    "correctAnswer": 2
-  },
-  {
-    "question": "Welche Lebensmittel enthalten viele Omega-3-Fettsäuren?",
+    "question": "Welche Fettart ist am besten für die Herzgesundheit geeignet?",
     "options": [
-      "Weißbrot und Butter",
-      "Fettreiche Fische wie Lachs",
-      "Zucker und Süßigkeiten",
-      "Rotes Fleisch"
+      "Gesättigte Fette",
+      "Ungesättigte Fette (wie Olivenöl)",
+      "Transfette",
+      "Tierische Fette"
     ],
     "correctAnswer": 1
   },
   {
-    "question": "Welcher Teil des menschlichen Körpers hat die meisten Knochen?",
-    "options": ["Hände", "Füße", "Wirbelsäule", "Schädel"],
+    "question": "Was ist der normale Nüchternblutzuckerwert?",
+    "options": [
+      "70-99 mg/dl",
+      "100-125 mg/dl",
+      "126-150 mg/dl",
+      "Über 150 mg/dl"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welche Art von körperlicher Aktivität wird zur Verbesserung der Herzgesundheit empfohlen?",
+    "options": [
+      "Nur Krafttraining",
+      "Aerobic-Übungen wie zügiges Gehen oder Schwimmen",
+      "Langes Sitzen",
+      "Nahrungsergänzungsmittel statt Sport"
+    ],
     "correctAnswer": 1
   },
   {
-    "question": "Welcher Sport verbessert die Flexibilität am meisten?",
-    "options": ["Basketball", "Yoga", "Schwimmen", "Gewichtheben"],
-    "correctAnswer": 1
+    "question": "Welche der folgenden Nahrungsmittel sind reich an Ballaststoffen?",
+    "options": [
+      "Obst und Gemüse",
+      "Rotes Fleisch",
+      "Milchprodukte",
+      "Meeresfrüchte"
+    ],
+    "correctAnswer": 0
   },
   {
-    "question": "Welcher Nährstoff hilft dem Körper bei der Zellregeneration?",
-    "options": ["Kohlenhydrate", "Fette", "Proteine", "Zucker"],
+    "question": "Was ist die beste Methode, um mit Stress und psychischem Druck umzugehen?",
+    "options": [
+      "Meditation oder Sport treiben",
+      "Mehr Koffein konsumieren",
+      "Lange Schlafzeiten vermeiden",
+      "Mehr zuckerhaltige Lebensmittel essen"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Was ist eine der besten Möglichkeiten, Mund- und Zahngesundheit zu erhalten?",
+    "options": [
+      "Zähne zweimal täglich mit fluoridhaltiger Zahnpasta putzen",
+      "Nach jeder Mahlzeit Süßigkeiten essen",
+      "Zähne einmal pro Woche reinigen",
+      "Limonaden statt Wasser trinken"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welche Auswirkungen hat regelmäßige körperliche Aktivität auf die psychische Gesundheit?",
+    "options": [
+      "Verbessert die Stimmung und reduziert Stress",
+      "Erhöht Angstzustände und Depressionen",
+      "Keine Auswirkungen auf die psychische Gesundheit",
+      "Verringert die Konzentrationsfähigkeit"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Was ist ein Hauptanzeichen für Dehydration im Körper?",
+    "options": [
+      "Starkes Durstgefühl",
+      "Erhöhter Appetit",
+      "Gewichtszunahme",
+      "Übermäßige Schläfrigkeit"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welche positive Wirkung hat der Verzehr von proteinreichen Lebensmitteln?",
+    "options": [
+      "Muskelaufbau und -reparatur",
+      "Erhöhung des Blutzuckerspiegels",
+      "Verringerung der Muskelmasse",
+      "Erhöhung des Cholesterinspiegels"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Welche tägliche Gewohnheit hilft, das Risiko von Atemwegsinfektionen zu verringern?",
+    "options": [
+      "Regelmäßiges Händewaschen",
+      "Nur Nahrungsergänzungsmittel einnehmen",
+      "Übermäßige Bewegung",
+      "Fettige Lebensmittel essen"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "In welchem Alter wird empfohlen, mit der Darmkrebsfrüherkennung zu beginnen?",
+    "options": ["35 Jahre", "40 Jahre", "45 Jahre", "50 Jahre"],
     "correctAnswer": 2
   },
   {
-    "question": "Wie viele Kammern hat das menschliche Herz?",
-    "options": ["2", "4", "6", "8"],
-    "correctAnswer": 1
+    "question": "Was ist der Hauptvorteil des Verzehrs von Vollkornprodukten?",
+    "options": [
+      "Reduziert das Risiko von Herzkrankheiten",
+      "Gewichtszunahme",
+      "Erhöht das schlechte Cholesterin",
+      "Verursacht Verstopfung"
+    ],
+    "correctAnswer": 0
   },
   {
-    "question": "Welches Organ ist für die Sauerstoffaufnahme und Kohlendioxidabgabe verantwortlich?",
-    "options": ["Leber", "Herz", "Lunge", "Niere"],
-    "correctAnswer": 2
+    "question": "Wie kann man sich am besten vor der saisonalen Grippe schützen?",
+    "options": [
+      "Jährliche Grippeimpfung",
+      "Mehr zuckerhaltige Lebensmittel essen",
+      "Antibiotika verwenden",
+      "Sich in überfüllten Räumen aufhalten"
+    ],
+    "correctAnswer": 0
   },
   {
-    "question": "Welcher Vitaminmangel führt zu Skorbut?",
-    "options": ["Vitamin B12", "Vitamin C", "Vitamin D", "Vitamin A"],
-    "correctAnswer": 1
+    "question": "Was ist der wichtigste Tipp, um die Gesundheit von Schulkindern zu fördern?",
+    "options": [
+      "Regelmäßiges Händewaschen fördern",
+      "Weniger Wasser trinken",
+      "Essen an jedem beliebigen Ort erlauben",
+      "Impfungen ignorieren"
+    ],
+    "correctAnswer": 0
   },
   {
-    "question": "Welches Organ wird hauptsächlich vom Hormon Insulin beeinflusst?",
-    "options": ["Leber", "Magen", "Niere", "Bauchspeicheldrüse"],
+    "question": "Welche Auswirkungen hat Rauchen auf die Gesundheit der Lunge?",
+    "options": [
+      "Erhöht das Risiko von Lungenkrebs und Atemwegserkrankungen",
+      "Verbessert die Gesundheit der Lunge",
+      "Hat keine Auswirkungen",
+      "Steigert die Atmungseffizienz"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هي الطريقة الأكثر فعالية للوقاية من انتشار الأمراض المعدية؟",
+    "options": [
+      "غسل اليدين بانتظام بالماء والصابون",
+      "استخدام معقم اليدين فقط",
+      "تجنب الخروج من المنزل",
+      "تناول الفيتامينات يوميًا"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هو السبب الرئيسي للإصابة بارتفاع ضغط الدم؟",
+    "options": [
+      "التوتر المزمن",
+      "تناول الكثير من الملح",
+      "عدم ممارسة الرياضة",
+      "كل ما سبق"
+    ],
     "correctAnswer": 3
   },
   {
-    "question": "Welches dieser Lebensmittel enthält die meisten Antioxidantien?",
-    "options": ["Brokkoli", "Rotes Fleisch", "Weißbrot", "Süßigkeiten"],
-    "correctAnswer": 0
-  },
-  {
-    "question": "Wie viele Knochen hat ein erwachsener menschlicher Körper?",
-    "options": ["200", "206", "300", "156"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welches Organ reguliert den Blutzuckerspiegel im Körper?",
-    "options": ["Leber", "Bauchspeicheldrüse", "Niere", "Magen"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welche Mineralstoffe sind entscheidend für die Knochengesundheit?",
+    "question": "ما هي الطريقة الصحيحة لحماية البشرة من أشعة الشمس الضارة؟",
     "options": [
-      "Kalzium und Magnesium",
-      "Natrium und Kalium",
-      "Eisen und Zink",
-      "Kupfer und Phosphor"
+      "استخدام واقي الشمس بمعامل حماية (SPF) 30 أو أكثر",
+      "البقاء تحت أشعة الشمس خلال الظهيرة",
+      "شرب الكثير من الماء فقط",
+      "استخدام مرطبات البشرة"
     ],
     "correctAnswer": 0
   },
   {
-    "question": "Welche Sportart verbessert sowohl die Ausdauer als auch die Muskelkraft?",
-    "options": ["Schwimmen", "Schach", "Tanzen", "Golf"],
+    "question": "ما هي العلامة المبكرة لنقص فيتامين د في الجسم؟",
+    "options": [
+      "آلام العضلات والعظام",
+      "تغير لون الجلد",
+      "زيادة الوزن",
+      "جفاف الفم"
+    ],
     "correctAnswer": 0
   },
   {
-    "question": "Welcher Muskel ist der größte im menschlichen Körper?",
+    "question": "كم عدد ساعات النوم الموصى بها للبالغين يوميًا للحفاظ على صحة جيدة؟",
+    "options": ["4-5 ساعات", "6-8 ساعات", "8-10 ساعات", "10-12 ساعة"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "ما هو أفضل نوع من الدهون للاستهلاك لصحة القلب؟",
     "options": [
-      "Bizeps",
-      "Quadrizeps",
-      "Gluteus Maximus (Gesäßmuskel)",
-      "Trapezmuskel"
+      "الدهون المشبعة",
+      "الدهون غير المشبعة (مثل زيت الزيتون)",
+      "الدهون المتحولة",
+      "الدهون الحيوانية"
     ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "ما هو المعدل الطبيعي لمستوى السكر في الدم عند الصيام؟",
+    "options": [
+      "70-99 ملغ/ديسيلتر",
+      "100-125 ملغ/ديسيلتر",
+      "126-150 ملغ/ديسيلتر",
+      "أكثر من 150 ملغ/ديسيلتر"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هو التمرين البدني الموصى به لتحسين صحة القلب؟",
+    "options": [
+      "تمارين المقاومة فقط",
+      "التمارين الهوائية مثل المشي السريع أو السباحة",
+      "الجلوس لفترات طويلة",
+      "تناول المكملات الغذائية بدلاً من الرياضة"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "أي من الأطعمة التالية غني بالألياف الغذائية؟",
+    "options": [
+      "الفواكه والخضروات",
+      "اللحوم الحمراء",
+      "منتجات الألبان",
+      "المأكولات البحرية"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هي الطريقة الأنسب للتعامل مع التوتر والضغط النفسي؟",
+    "options": [
+      "ممارسة التأمل أو الرياضة",
+      "زيادة استهلاك الكافيين",
+      "تجنب النوم لفترات طويلة",
+      "تناول المزيد من الأطعمة السكرية"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هو أحد أفضل الطرق للحفاظ على صحة الفم والأسنان؟",
+    "options": [
+      "تنظيف الأسنان مرتين يوميًا بمعجون يحتوي على الفلورايد",
+      "تناول الحلويات بعد كل وجبة",
+      "تنظيف الأسنان مرة واحدة في الأسبوع",
+      "تناول المشروبات الغازية بدلًا من الماء"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هو تأثير النشاط البدني المنتظم على الصحة النفسية؟",
+    "options": [
+      "تحسين المزاج وتقليل التوتر",
+      "زيادة القلق والاكتئاب",
+      "لا تأثير على الصحة النفسية",
+      "تقليل القدرة على التركيز"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هي العلامة الرئيسية للجفاف في الجسم؟",
+    "options": [
+      "الشعور بالعطش الشديد",
+      "زيادة الشهية",
+      "زيادة الوزن",
+      "الشعور بالنعاس الزائد"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هو الأثر الإيجابي لتناول الأطعمة الغنية بالبروتين؟",
+    "options": [
+      "بناء وإصلاح العضلات",
+      "زيادة مستويات السكر في الدم",
+      "تقليل الكتلة العضلية",
+      "زيادة الكوليسترول"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هي العادة اليومية التي تساعد في تقليل خطر الإصابة بالعدوى التنفسية؟",
+    "options": [
+      "غسل اليدين بانتظام",
+      "تناول المكملات الغذائية فقط",
+      "ممارسة الرياضة المفرطة",
+      "تناول الأطعمة الدهنية"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "ما هو العمر الموصى به لبدء فحص سرطان القولون؟",
+    "options": ["35 سنة", "40 سنة", "45 سنة", "50 سنة"],
     "correctAnswer": 2
   },
   {
-    "question": "Welche Lebensmittel sind besonders reich an Vitamin K?",
+    "question": "ما هي الفائدة الرئيسية لتناول الحبوب الكاملة؟",
     "options": [
-      "Grünes Blattgemüse",
-      "Rotes Fleisch",
-      "Milchprodukte",
-      "Zitrusfrüchte"
+      "تقليل خطر الإصابة بأمراض القلب",
+      "زيادة الوزن",
+      "زيادة الكوليسترول الضار",
+      "التسبب في الإمساك"
     ],
     "correctAnswer": 0
   },
   {
-    "question": "Wie viel Prozent des menschlichen Körpers besteht aus Wasser?",
-    "options": ["30-40%", "50-60%", "70-80%", "90%"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Was ist die Hauptfunktion der roten Blutkörperchen?",
+    "question": "ما هي أفضل طريقة للوقاية من الأنفلونزا الموسمية؟",
     "options": [
-      "Infektionen bekämpfen",
-      "Nährstoffe transportieren",
-      "Sauerstoff im Körper transportieren",
-      "Hormone freisetzen"
-    ],
-    "correctAnswer": 2
-  },
-  {
-    "question": "Welche Übung ist besonders gut für die Verbesserung des Gleichgewichts?",
-    "options": ["Gewichtheben", "Laufen", "Tai Chi", "Schwimmen"],
-    "correctAnswer": 2
-  },
-  {
-    "question": "Welches Vitamin hilft, das Immunsystem zu stärken?",
-    "options": ["Vitamin D", "Vitamin C", "Vitamin A", "Vitamin K"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welche dieser Übungen ist ideal, um die Rückenmuskulatur zu stärken?",
-    "options": ["Liegestütze", "Rudern", "Radfahren", "Kniebeugen"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welcher Teil des Körpers ist für das Hören verantwortlich?",
-    "options": ["Augen", "Ohren", "Nase", "Mund"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welche Lebensmittelgruppe ist eine ausgezeichnete Quelle für gesunde Fette?",
-    "options": [
-      "Nüsse und Samen",
-      "Zuckerhaltige Snacks",
-      "Vollkornprodukte",
-      "Früchte"
+      "الحصول على التطعيم السنوي ضد الأنفلونزا",
+      "تناول المزيد من الأطعمة السكرية",
+      "استخدام الأدوية المضادة للبكتيريا",
+      "البقاء في الأماكن المزدحمة"
     ],
     "correctAnswer": 0
   },
   {
-    "question": "Welcher Muskel ist für das Heben des Arms zuständig?",
-    "options": ["Bizeps", "Deltoidmuskel", "Trizeps", "Pectoralis major"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welche dieser Lebensmittel sind reich an Eisen?",
+    "question": "ما هي النصيحة الأساسية للحفاظ على صحة الأطفال في المدرسة؟",
     "options": [
-      "Spinat und rotes Fleisch",
-      "Zitrusfrüchte",
-      "Milch und Käse",
-      "Butter und Brot"
+      "تشجيع غسل اليدين بانتظام",
+      "تقليل تناول الماء",
+      "السماح بالأكل في أي مكان",
+      "التغاضي عن التطعيمات"
     ],
     "correctAnswer": 0
   },
   {
-    "question": "Welches Hormon reguliert den Schlaf-Wach-Rhythmus?",
-    "options": ["Insulin", "Melatonin", "Adrenalin", "Testosteron"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welches Vitamin unterstützt die Hautgesundheit und das Sehvermögen?",
-    "options": ["Vitamin A", "Vitamin D", "Vitamin E", "Vitamin K"],
+    "question": "ما هو تأثير التدخين على صحة الرئتين؟",
+    "options": [
+      "يزيد من خطر الإصابة بسرطان الرئة وأمراض الجهاز التنفسي",
+      "يحسن صحة الرئتين",
+      "ليس له أي تأثير",
+      "يعزز كفاءة التنفس"
+    ],
     "correctAnswer": 0
-  },
-  {
-    "question": "Welcher Muskel ist der Hauptverantwortliche für das Kauen?",
-    "options": ["Bizeps", "Masseter", "Pectoralis", "Quadrizeps"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welches Lebensmittel ist besonders reich an Vitamin B12?",
-    "options": ["Äpfel", "Fisch und Fleisch", "Kartoffeln", "Nüsse"],
-    "correctAnswer": 1
-  },
-  {
-    "question": "Welcher Sport eignet sich am besten zur Fettverbrennung?",
-    "options": ["Joggen", "Yoga", "Schach", "Radfahren"],
-    "correctAnswer": 0
-  },
-  {
-    "question": "Welches Organ ist das größte im menschlichen Körper?",
-    "options": ["Herz", "Leber", "Haut", "Lunge"],
-    "correctAnswer": 2
   }
 ]

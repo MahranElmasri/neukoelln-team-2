@@ -17,7 +17,7 @@ function MainPage() {
         </h4>
       </div>
       <img
-        src="https://res.cloudinary.com/dokftel0w/image/upload/v1729755232/spandau-bg_iqhjqh.jpg"
+        src="https://smartpraxis.sirv.com/images/mvz-spandau.jpg"
         alt="Doctor Office Hero"
         className="object-cover w-screen h-[80vh]"
         loading="lazy"

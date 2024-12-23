@@ -30,7 +30,7 @@ export default function App() {
 
   const fetchRooms = async () => {
     const response = await axios.get(
-      `https://fa-team-waitlist-2.onrender.com/spandau-rooms`
+      `https://fa-team-waitlist-2.onrender.com/rooms?clinic=neukolln2`
     );
     setRooms(response.data);
   };
@@ -47,7 +47,7 @@ export default function App() {
 
     try {
       const response = await axios.patch(
-        `https://fa-team-waitlist-2.onrender.com/spandau/${roomId}`,
+        `https://fa-team-waitlist-2.onrender.com/clinics/neukolln2/doctors/${roomId}`,
         {
           patientName,
           notificationLang,

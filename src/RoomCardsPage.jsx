@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import sound from '/src/ding.mp3';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import sound from '/src/ding.mp3'; // Import the vaccine announcement
 import RoomCard from './RoomCard';
 import { io } from 'socket.io-client';
 import Header from './Header';
 import NewsFeed from './NewsFeed';
-import MedicalQuizSlider from './MedicalQuizSlider';
+import Presentation from './Presentaion';
+import Toast from './Toast';
 
 function RoomCardsPage({ rooms, fetchRooms }) {
   const audioRef = useRef(null);
@@ -15,8 +18,8 @@ function RoomCardsPage({ rooms, fetchRooms }) {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [announcementQueue, setAnnouncementQueue] = useState([]);
   const [speechSupported, setSpeechSupported] = useState(true);
-
-  const reload = () => window.location.reload();
+  const [roomCard, setRoomCard] = useState({});
+  const toastId = useRef(null);
 
   useEffect(() => {
     const fetchVoices = () => {
@@ -26,45 +29,50 @@ function RoomCardsPage({ rooms, fetchRooms }) {
     fetchVoices();
   }, [fetchRooms]);
 
+  const reload = () => window.location.reload();
+
   useEffect(() => {
     socket.current = io('wss://fa-team-waitlist-2.onrender.com:443', {
       transports: ['websocket'],
-      autoConnect: false,
-      timeout: 10000,
+      timeout: 15000,
+      reconnection: true, // Enable reconnection
+      reconnectionAttempts: 5, // Max attempts to reconnect
+      reconnectionDelay: 1000, // Initial delay between reconnections
+      reconnectionDelayMax: 5000, // Max delay between reconnections
     });
-    socket.current.connect();
 
-    socket.current.on('connect', () => {
-      console.log('Connected to WebSocket server');
+    socket.current.connect(); // Connect immediately
+
+    socket.current.on('disconnect', () => {
+      console.log('Disconnected from the server, attempting to0-reconnect...');
     });
-    socket.current.on('ping', () => {
-      console.log('Ping received from server');
-      socket.current.emit('pong');
+
+    socket.current.on('reconnect', (attemptNumber) => {
+      console.log(`Reconnected after ${attemptNumber} attempts`);
     });
+
+    socket.current.on('reconnect_failed', () => {
+      console.error('Reconnection failed');
+    });
+
     socket.current.on('connect_error', (error) => {
       console.error(`WebSocket connection error: ${error.message}`);
     });
+
     return () => {
-      if (socket.current.readyState === 1) {
-        socket.current.close();
-      }
+      socket.current.close(); // Close socket on component unmount
     };
-  }, [fetchRooms]);
+  }, [fetchRooms]); // Ensure dependency is appropriate
+  // Use fetchRooms as a dependency if necessary
 
   useEffect(() => {
     const handleUpdateRooms = () => fetchRooms();
-    socket.current.on('UPDATE_SPANDAU_ROOMS', handleUpdateRooms);
+    socket.current.on('UPDATE_NEUKOLLN2_ROOMS', handleUpdateRooms);
 
     return () => {
-      socket.current.off('UPDATE_SPANDAU_ROOMS', handleUpdateRooms);
+      socket.current.off('UPDATE_NEUKOLLN2_ROOMS', handleUpdateRooms);
     };
   }, [fetchRooms]);
-
-  useEffect(() => {
-    if (!window.SpeechSynthesisUtterance || !window.speechSynthesis) {
-      setSpeechSupported(false);
-    }
-  }, []);
 
   useEffect(() => {
     socket.current.on('RELOAD', reload);
@@ -75,20 +83,41 @@ function RoomCardsPage({ rooms, fetchRooms }) {
   }, [fetchRooms]);
 
   useEffect(() => {
+    if (!window.SpeechSynthesisUtterance || !window.speechSynthesis) {
+      setSpeechSupported(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Detect new patient additions
     const newPatientAdded = rooms.findIndex(
       (room, index) =>
         room?.notificationLang !== prevRooms.current[index]?.notificationLang ||
-        (room?.patientName &&
-          room?.patientName !== prevRooms.current[index]?.patientName)
+        room?.patientName !== prevRooms.current[index]?.patientName
     );
+
+    // Detect patient deletions
+    const patientDeleted = rooms.findIndex(
+      (room, index) =>
+        !room?.patientName && prevRooms.current[index]?.patientName
+    );
+
     if (newPatientAdded !== -1) {
       const room = rooms[newPatientAdded];
+      setRoomCard(room); // Update `roomCard` with the new patient data
       const announcement = generateAnnouncement(room);
       if (announcement) {
         setAnnouncementQueue((prevQueue) => [...prevQueue, announcement]);
       }
+    } else if (patientDeleted !== -1) {
+      const room = rooms[patientDeleted];
+      setRoomCard({ ...room, patientName: undefined }); // Clear patient data
+    } else {
+      // Fallback: Clear roomCard when there are no changes
+      setRoomCard({});
     }
-    prevRooms.current = [...rooms];
+
+    prevRooms.current = [...rooms]; // Update the previous rooms reference
   }, [rooms]);
 
   const generateAnnouncement = (room) => {
@@ -98,46 +127,32 @@ function RoomCardsPage({ rooms, fetchRooms }) {
 
       const notificationText = {
         'ar-SA':
-          room.roomId === 7
-            ? `${room?.patientName}  يرجى التوجه إلى، المختبر`
-            : room.roomId === 8
+          room.roomId === 9
+            ? `${room?.patientName} يرجى التوجه إلى، المختبر`
+            : room.roomId === 10
             ? `${room?.patientName} يرجى التوجه إلى الاستقبال`
             : `${room?.patientName} يرجى التوجه إلى غرفة، رقم ${room.roomId}`,
 
         'en-GB':
-          room.roomId === 7
+          room.roomId === 9
             ? `${room?.patientName} Please go to, Laboratory`
-            : room.roomId === 8
+            : room.roomId === 10
             ? `${room?.patientName} Please contact the reception`
             : `${room?.patientName} Please go to Room, Number ${room.roomId}`,
 
         'de-DE':
-          room.roomId === 7
+          room.roomId === 9
             ? `${room?.patientName} Bitte gehen Sie zu, Labor`
-            : room.roomId === 8
+            : room.roomId === 10
             ? `${room?.patientName} Bitte wenden Sie sich an die Anmeldung`
             : `${room?.patientName} Bitte gehen Sie zur Zimmer, nummer ${room.roomId}`,
 
         'tr-TR':
-          room.roomId === 7
+          room.roomId === 9
             ? `${room?.patientName} Lütfen şu adrese gidin, Laboratuvar`
-            : room.roomId === 8
+            : room.roomId === 10
             ? `${room?.patientName} Lütfen resepsiyona başvurun`
             : `${room?.patientName} Lütfen Oda'ya gidin, Numara ${room.roomId}`,
-
-        'ru-RU':
-          room.roomId === 7
-            ? `${room?.patientName} Лаборатория`
-            : room.roomId === 8
-            ? `${room?.patientName} Пожалуйста, свяжитесь с администратором`
-            : `${room?.patientName} Пожалуйста, пройдите в комнату, номер ${room.roomId}`,
-
-        'pl-PL':
-          room.roomId === 7
-            ? `${room?.patientName} Laboratorium`
-            : room.roomId === 8
-            ? `${room?.patientName} Prosimy o kontakt z recepcjonistą`
-            : `${room?.patientName} Przejdź do pokoju, numer ${room.roomId}`,
       };
 
       const language = room.notificationLang;
@@ -169,6 +184,9 @@ function RoomCardsPage({ rooms, fetchRooms }) {
       const utterance = new SpeechSynthesisUtterance(announcement);
       if (voice) {
         utterance.voice = voice;
+        utterance.volume = 1;
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
       }
 
       utterance.onend = () => {
@@ -214,6 +232,36 @@ function RoomCardsPage({ rooms, fetchRooms }) {
   };
 
   useEffect(() => {
+    toastId.current = `${roomCard.roomId}`;
+    if (roomCard?.patientName) {
+      const toastOptions = {
+        toastId: toastId.current,
+        autoClose: 240000,
+        hideProgressBar: true,
+        newestOnTop: true,
+        closeButton: false,
+        pauseOnFocusLose: false,
+      };
+
+      if (toast.isActive(toastId.current)) {
+        // Update the toast if it's already active and `patientName` has changed
+        toast.update(toastId.current, {
+          render: () => <Toast room={roomCard} />,
+        });
+      } else {
+        // Show the toast for the first time if it is not active
+        toast(<Toast room={roomCard} />, toastOptions);
+      }
+    } else {
+      // Dismiss the toast if `patientName` is deleted
+      if (toast.isActive(toastId.current)) {
+        toast.dismiss(toastId.current);
+        toastId.current = null;
+      }
+    }
+  }, [roomCard?.patientName, roomCard?.roomId, toastId.current]);
+
+  useEffect(() => {
     // Check if there is an announcement in the queue
     if (announcementQueue.length > 0 && !isSpeaking) {
       setIsSpeaking(true);
@@ -246,22 +294,20 @@ function RoomCardsPage({ rooms, fetchRooms }) {
     <div className="w-full">
       <audio ref={audioRef} src={sound} preload="auto" />
       <Header />
-      <div className="flex flex-col sm:flex-row">
-        <div className="w-full sm:w-2/3">
-          <MedicalQuizSlider />
-        </div>
-        <div className="w-full sm:w-1/3">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 col-span-2 gap-2">
-            {rooms
-              .filter((room) => room.id !== 9)
-              .map((room, index) => (
-                <RoomCard key={index} room={room} />
-              ))}
-          </div>
-        </div>
+      <ToastContainer
+        style={{ width: '450px' }}
+        className="toaster-container"
+        position="top-right"
+      />
+      <div className="w-full sm:w-[80vw] max-h-screen ml-16">
+        <Presentation />
       </div>
-
-      {/* <NewsFeed /> */}
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-2 bg-slate-600">
+        {rooms.map((room, index) => (
+          <RoomCard key={index} room={room} />
+        ))}
+      </div>
+      <NewsFeed /> */}
     </div>
   );
 }
