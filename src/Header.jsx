@@ -30,7 +30,7 @@ const Header = () => {
     <header className="bg-cyan-600 p-2 flex justify-between items-center flex-wrap px-6 py-4">
       <div className="flex items-center mb-2 sm:mb-0">
         <h1 className="text-white text-2xl sm:text-4xl font-bold ml-2 sm:ml-0">
-          MVZ El-Sharafi Spandau
+          MVZ El-Sharafi Neukölln
         </h1>
       </div>
       <div className="text-white w-full flex flex-row sm:w-auto text-l sm:text-2xl mt-2 sm:mt-0">
