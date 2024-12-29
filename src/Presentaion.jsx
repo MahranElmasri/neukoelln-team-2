@@ -71,7 +71,7 @@ const Presentaion = () => {
 
   if (!showQuiz) {
     return (
-      <div className="w-fit mt-16">
+      <div className="w-full h-[calc(100vh-4rem)]">
         <ReactPlayer
           url={videoUrls[currentVideoIndex]}
           playing={true}
