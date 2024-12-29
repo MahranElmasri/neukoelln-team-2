@@ -105,3 +105,18 @@ form.signup, form.login {
   background: #fff;
   border-radius: 4px;
 }
+
+/* Add to your global CSS file */
+  .Toastify__toast-container {
+    width: 600px !important;
+    max-width: 90vw !important;
+  }
+
+  .Toastify__toast {
+      width: 600px !important;
+    max-width: 90vw !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    margin-bottom: 0.1rem !important;
+  }
