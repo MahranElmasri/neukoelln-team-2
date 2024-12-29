@@ -113,7 +113,7 @@ form.signup, form.login {
   }
 
   .Toastify__toast {
-      width: 600px !important;
+      width: 500px !important;
     max-width: 90vw !important;
     padding: 0 !important;
     background: transparent !important;

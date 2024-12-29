@@ -15,7 +15,7 @@ import vaccineAnnouncement from '/src/vaccine_announcement.mp3';
 // Constants
 const SOCKET_URL = 'wss://fa-team-waitlist-2.onrender.com:443';
 // const SOCKET_URL = 'localhost:3001';
-const TOAST_DURATION = 180000;
+const TOAST_DURATION = 120000;
 const SPEECH_DELAY = 2500;
 
 const SOCKET_CONFIG = {

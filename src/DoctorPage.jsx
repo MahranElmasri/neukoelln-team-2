@@ -20,7 +20,7 @@ const LANGUAGE_NAMES = {
   'ru-RU': 'RU',
   'pl-PL': 'PL',
 };
-const PATIENT_TIMEOUT = 180000;
+const PATIENT_TIMEOUT = 120000;
 const ANNOUNCEMENT_TIMEOUT = 110000;
 
 // Common CSS classes
