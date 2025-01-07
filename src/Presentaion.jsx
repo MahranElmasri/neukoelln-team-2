@@ -9,16 +9,18 @@ const Presentaion = () => {
   const [showQuiz, setShowQuiz] = useState(false);
 
   const videoUrls = [
-    'https://smartpraxis.sirv.com/videos-from-smart-clinics/MVZ%20El-Sharafi%20intro.mp4',
+    'https://ik.imagekit.io/wvpwf1oj9/MVZ-El-Sharafi.mp4',
+    'https://ik.imagekit.io/wvpwf1oj9/Infectious%20Disease.mp4',
     'https://ik.imagekit.io/wvpwf1oj9/Infectious%20Disease%20de.mp4',
-    'https://ik.imagekit.io/wvpwf1oj9/New-baby-de.mp4',
-    'https://ik.imagekit.io/wvpwf1oj9/RSV-de.mp4',
-    'https://ik.imagekit.io/wvpwf1oj9/COPD%20DE%20.mp4',
-    'https://ik.imagekit.io/wvpwf1oj9/Infectious%20Disease.mp4?updatedAt=1734344270779',
     'https://ik.imagekit.io/wvpwf1oj9/Vaccines.mp4',
     'https://ik.imagekit.io/wvpwf1oj9/new-baby.mp4',
+    'https://ik.imagekit.io/wvpwf1oj9/New-baby-de.mp4',
+    'https://ik.imagekit.io/wvpwf1oj9/healthy-food.mp4/ik-video.mp4',
+    'https://ik.imagekit.io/wvpwf1oj9/healthy-food-de.mp4/ik-video.mp4',
     'https://ik.imagekit.io/wvpwf1oj9/RSV.mp4',
+    'https://ik.imagekit.io/wvpwf1oj9/RSV-de.mp4',
     'https://ik.imagekit.io/wvpwf1oj9/COPD.mp4',
+    'https://ik.imagekit.io/wvpwf1oj9/COPD%20DE%20.mp4',
     'https://ik.imagekit.io/wvpwf1oj9/quiz.mp4',
   ];
 
