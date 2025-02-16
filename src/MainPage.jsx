@@ -17,7 +17,7 @@ function MainPage() {
         </h4>
       </div>
       <img
-        src="https://smartpraxis.sirv.com/images/mvz-spandau.jpg"
+        src="https://ik.imagekit.io/br3koz4p0/images/mvz-spandau.jpg"
         alt="Doctor Office Hero"
         className="object-cover w-screen h-[80vh]"
         loading="lazy"
