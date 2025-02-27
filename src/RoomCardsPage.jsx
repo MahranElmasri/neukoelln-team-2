@@ -273,7 +273,7 @@ function RoomCardsPage({ rooms, fetchRooms }) {
         hideProgressBar: true,
         newestOnTop: true,
         closeButton: false,
-        pauseOnFocusLose: false,
+        pauseOnFocusLose: true,
       };
 
       if (toast.isActive(toastId.current)) {
