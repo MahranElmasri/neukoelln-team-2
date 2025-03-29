@@ -323,7 +323,7 @@ function RoomCardsPage({ rooms, fetchRooms }) {
       <audio ref={audioRef} src={sound} preload="auto" />
 
       {/* Header with minimal height */}
-      <Header className="flex-shrink-0" />
+      {/* <Header className="flex-shrink-0" /> */}
 
       {/* Toast container */}
       <ToastContainer className="toaster-container" position="top-right" />

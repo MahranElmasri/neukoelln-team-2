@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactPlayer from 'react-player';
 import questions from './quiz.json';
+import './presentation.css';
 
-const Presentaion = () => {
+const Presentation = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [timer, setTimer] = useState(25);
   const [showQuiz, setShowQuiz] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const playerRef = useRef(null);
 
   const videoUrls = [
     'https://ik.imagekit.io/br3koz4p0/mvz-intro.mp4',
-    'https://ik.imagekit.io/wvpwf1oj9/mvz-elsharafi-app/Ramdan%20(1).mp4',
+    // 'https://ik.imagekit.io/wvpwf1oj9/mvz-elsharafi-app/Ramdan%20(1).mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-ar.mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-de.mp4',
     // // 'https://ik.imagekit.io/br3koz4p0/Infectious%20Disease.mp4',
@@ -31,6 +34,15 @@ const Presentaion = () => {
   ];
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  // Update current time every minute
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
+
+    return () => clearInterval(timerId);
+  }, []);
 
   // Quiz timer logic
   useEffect(() => {
@@ -77,17 +89,96 @@ const Presentaion = () => {
     }
   };
 
+  const formatTime = (date) => {
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+
+  // Common header elements for both video and quiz modes
+  const HeaderElements = () => (
+    <>
+      {/* Top left logo */}
+      <div
+        className="top-left-logo flex items-center"
+        style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 100 }}
+      >
+        <img
+          src="https://ik.imagekit.io/wvpwf1oj9/mvz-elsharafi-app/logo.png?updatedAt=1740468611559"
+          alt="Clinic Logo"
+          className="logo"
+        />
+        <div className="logo-text text-2xl font-bold">
+          MVZ EL-SHARAFI NEUKÖLLN
+        </div>
+      </div>
+
+      {/* Top right time */}
+      <div
+        className="top-right-time flex items-center gap-1 text-2xl"
+        style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          zIndex: 100,
+        }}
+      >
+        <div className="clock-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+            />
+            <line
+              x1="12"
+              y1="12"
+              x2="12"
+              y2="8"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+            <line
+              x1="12"
+              y1="12"
+              x2="16"
+              y2="12"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+          </svg>
+        </div>
+        <div className="time text-4xl font-bold">{formatTime(currentTime)}</div>
+      </div>
+    </>
+  );
+
   if (!showQuiz) {
     return (
-      <div className="w-full h-[calc(100vh-4rem)]">
-        <ReactPlayer
-          url={videoUrls[currentVideoIndex]}
-          playing={true}
-          muted={true}
-          height="100%"
-          width="100%"
-          onEnded={handleEnded}
-        />
+      <div className="presentation-container">
+        {/* Main video content */}
+        <div className="video-container">
+          <ReactPlayer
+            ref={playerRef}
+            url={videoUrls[currentVideoIndex]}
+            playing={true}
+            muted={true}
+            height="100%"
+            width="100%"
+            onEnded={handleEnded}
+            config={{
+              file: {
+                attributes: {
+                  controlsList: 'nodownload',
+                },
+              },
+            }}
+          />
+        </div>
+
+        {/* Common header elements */}
+        <HeaderElements />
       </div>
     );
   }
@@ -95,36 +186,63 @@ const Presentaion = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div className="w-full max-h-screen max-w-7xl mx-auto p-4 mt-16 mb-48">
-      <h2 className="text-3xl text-cyan-300 font-bold mb-4">
-        Medizinisches Quiz.
-      </h2>
-      <div className="mb-8">
-        <p className="text-5xl font-bold">{currentQuestion.question}</p>
-        <p
-          className={`text-xl ${
-            timer > 10 ? ' text-gray-100' : 'text-red-400 font-bold'
-          } pt-8`}
-        >
-          Verbleibende Zeit: {timer} Sekunden
-        </p>
-      </div>
-      <div className="space-y-2 flex flex-col">
-        {currentQuestion.options.map((option, index) => (
-          <div
-            key={index}
-            className={`w-full p-6 text-5xl font-semibold text-left rounded ${
-              showCorrectAnswer && index === currentQuestion.correctAnswer
-                ? 'bg-green-500 font-bold'
-                : 'bg-cyan-600'
-            }`}
+    <div
+      dir={currentQuestion.direction || 'ltr'}
+      className="presentation-container quiz-mode"
+    >
+      {/* Quiz content */}
+      <div className="quiz-container">
+        <div className="question-container flex flex-col items-center justify-center">
+          <p className="question-text text-6xl font-bold">
+            {currentQuestion.question}
+          </p>
+          <p
+            className={`timer ${timer > 10 ? 'timer-normal' : 'timer-warning'}`}
           >
-            {option}
-          </div>
-        ))}
+            Verbleibende Zeit: {timer} Sekunden
+          </p>
+        </div>
+        <div className="options-container">
+          {currentQuestion.options.map((option, index) => (
+            <div
+              key={index}
+              dir={currentQuestion.direction || 'ltr'}
+              className={`option ${
+                showCorrectAnswer && index === currentQuestion.correctAnswer
+                  ? 'option-correct'
+                  : ''
+              }`}
+            >
+              {option}
+            </div>
+          ))}
+        </div>
+
+        {/* Medical decoration elements */}
+        <div className="medical-decoration top-left"></div>
+        <div className="medical-decoration top-right"></div>
+        <div className="medical-decoration bottom-left"></div>
+        <div className="medical-decoration bottom-right"></div>
+      </div>
+
+      {/* Common header elements */}
+      <HeaderElements />
+
+      {/* Title overlay for quiz mode */}
+      <div
+        className="title-overlay quiz-title-overlay"
+        style={{
+          position: 'absolute',
+          top: '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 100,
+        }}
+      >
+        Medizinisches Quiz
       </div>
     </div>
   );
 };
 
-export default Presentaion;
+export default Presentation;
