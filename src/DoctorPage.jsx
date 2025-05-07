@@ -22,6 +22,7 @@ const LANGUAGE_NAMES = {
 };
 const PATIENT_TIMEOUT = 120000;
 const ANNOUNCEMENT_TIMEOUT = 110000;
+const SURVEY_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSd4UudqQwTevg23T2j65A3Un7bigbxtF_SGKkGRMkQPCNv8Vw/viewform?usp=header'; // Replace with your actual Google Form URL
 
 // Common CSS classes
 const buttonBaseClasses =
@@ -37,7 +38,7 @@ function DoctorPage({ doctor, rooms, updatePatientName }) {
   const [isRecalling, setIsRecalling] = useState(false);
   const inputRef = useRef(null);
   const patientTimersRef = useRef({});
-
+  const [showSurvey, setShowSurvey] = useState(false);
   useEffect(() => {
     inputRef.current.focus();
   }, [rooms]);
@@ -52,6 +53,18 @@ function DoctorPage({ doctor, rooms, updatePatientName }) {
     }
     return () => clearTimeout(timer);
   }, [isPlaying]);
+  // Add this useEffect to check if survey should be shown
+  useEffect(() => {
+    const hasShownSurvey = localStorage.getItem('hasShownSurvey');
+    if (!hasShownSurvey) {
+      setShowSurvey(true);
+      localStorage.setItem('hasShownSurvey', 'true');
+    }
+  }, []);
+    // Add this function to handle survey close
+  const handleCloseSurvey = () => {
+    setShowSurvey(false);
+  };
 
   const handlePatientNameChange = useCallback((event) => {
     setPatientName(event.target.value);
@@ -169,7 +182,32 @@ function DoctorPage({ doctor, rooms, updatePatientName }) {
   return (
     <div className="min-h-screen bg-cyan-650">
       <Navbar />
-
+  {/* Add Survey Modal */}
+      {showSurvey && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-xl max-w-2xl w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold">Patient Survey</h3>
+              <button
+                onClick={handleCloseSurvey}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                ✕
+              </button>
+            </div>
+            <iframe
+              src={SURVEY_FORM_URL}
+              width="100%"
+              height="600"
+              frameBorder="0"
+              marginHeight="0"
+              marginWidth="0"
+            >
+              Loading…
+            </iframe>
+          </div>
+        </div>
+      )}
       <div className="max-w-2xl mx-auto px-4 py-8">
         {/* Room Number Header */}
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-100">
