@@ -98,7 +98,7 @@ const Presentation = () => {
     <>
       {/* Top left logo */}
       <div
-        className="top-left-logo flex items-center"
+        className="top-left-logo flex items-center bg-black/40 rounded-xl p-1"
         style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 100 }}
       >
         <img
@@ -113,7 +113,7 @@ const Presentation = () => {
 
       {/* Top right time */}
       <div
-        className="top-right-time flex items-center gap-1 text-2xl"
+        className="top-right-time flex items-center gap-1 text-2xl bg-black/40 rounded-xl p-2"
         style={{
           position: 'absolute',
           top: '20px',
