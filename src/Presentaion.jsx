@@ -16,20 +16,19 @@ const Presentation = () => {
     // 'https://ik.imagekit.io/wvpwf1oj9/mvz-elsharafi-app/Ramdan%20(1).mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-ar.mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-de.mp4',
-    // // 'https://ik.imagekit.io/br3koz4p0/Infectious%20Disease.mp4',
-    'https://ik.imagekit.io/br3koz4p0/Vaccines.mp4',
+    'https://ik.imagekit.io/br3koz4p0/Infectious%20Disease.mp4',
+    'https://ik.imagekit.io/br3koz4p0/Infectious%20Disease%20de.mp4',
+    // 'https://ik.imagekit.io/br3koz4p0/Vaccines.mp4',
     'https://ik.imagekit.io/br3koz4p0/RSV.mp4',
     'https://ik.imagekit.io/wvpwf1oj9/RSV-de.mp4?updatedAt=1734342153975',
     'https://ik.imagekit.io/br3koz4p0/Krebsfru%CC%88herkennung-ar.mp4',
     'https://ik.imagekit.io/br3koz4p0/Krebsfru%CC%88herkennung-de.mp4',
-    // 'https://ik.imagekit.io/br3koz4p0/new-baby.mp4?updatedAt=1737404325248',
-    // 'https://ik.imagekit.io/br3koz4p0/COPD.mp4',
-    // 'https://ik.imagekit.io/br3koz4p0/COPD%20DE%20.mp4',
+    'https://ik.imagekit.io/br3koz4p0/new-baby.mp4?updatedAt=1737404325248',
+    'https://ik.imagekit.io/br3koz4p0/New-baby-de.mp4?updatedAt=1737404329859',
+    'https://ik.imagekit.io/br3koz4p0/COPD.mp4',
+    'https://ik.imagekit.io/br3koz4p0/COPD%20DE%20.mp4',
     'https://ik.imagekit.io/wvpwf1oj9/healthy-food.mp4/ik-video.mp4?updatedAt=1734456099146',
     'https://ik.imagekit.io/br3koz4p0/healthy-food-de_mp4.m4v/ik-video.mp4',
-
-    // 'https://ik.imagekit.io/br3koz4p0/Infectious%20Disease%20de.mp4',
-    // 'https://ik.imagekit.io/br3koz4p0/New-baby-de.mp4?updatedAt=1737404329859',
     'https://ik.imagekit.io/wvpwf1oj9/quiz.mp4?updatedAt=1734343028195',
   ];
 
@@ -106,7 +105,7 @@ const Presentation = () => {
           alt="Clinic Logo"
           className="logo"
         />
-        <div className="logo-text text-2xl font-bold">
+        <div className="logo-text text-2xl -ml-4 font-bold">
           MVZ EL-SHARAFI NEUKÖLLN
         </div>
       </div>
