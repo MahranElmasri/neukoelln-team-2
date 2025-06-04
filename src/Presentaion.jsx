@@ -13,6 +13,7 @@ const Presentation = () => {
 
   const videoUrls = [
     'https://ik.imagekit.io/br3koz4p0/mvz-intro.mp4',
+    'https://ik.imagekit.io/br3koz4p0/Eid-Al-Adha.mp4',
     // 'https://ik.imagekit.io/wvpwf1oj9/mvz-elsharafi-app/Ramdan%20(1).mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-ar.mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-de.mp4',
@@ -201,7 +202,21 @@ const Presentation = () => {
             Verbleibende Zeit: {timer} Sekunden
           </p>
         </div>
-        <div className="options-container">
+        <div
+          className="options-container"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: `repeat(${
+              currentQuestion.options.length > 2 ? 2 : 1
+            }, 1fr)`,
+            gap: '2rem',
+            justifyItems: 'center',
+            alignItems: 'center',
+            width: '80vw',
+            margin: '0 auto',
+            marginTop: '2rem',
+          }}
+        >
           {currentQuestion.options.map((option, index) => (
             <div
               key={index}
