@@ -13,7 +13,6 @@ const Presentation = () => {
 
   const videoUrls = [
     'https://ik.imagekit.io/br3koz4p0/mvz-intro.mp4',
-    'https://ik.imagekit.io/br3koz4p0/Eid-Al-Adha.mp4',
     // 'https://ik.imagekit.io/wvpwf1oj9/mvz-elsharafi-app/Ramdan%20(1).mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-ar.mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-de.mp4',
