@@ -13,15 +13,14 @@ const Presentation = () => {
 
   const videoUrls = [
     'https://ik.imagekit.io/br3koz4p0/mvz-intro.mp4',
-    'https://ik.imagekit.io/br3koz4p0/dr.khaled.mp4?updatedAt=1749645212407',
     // 'https://ik.imagekit.io/wvpwf1oj9/mvz-elsharafi-app/Ramdan%20(1).mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-ar.mp4',
     'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-de.mp4',
     'https://ik.imagekit.io/br3koz4p0/Infectious%20Disease.mp4',
     'https://ik.imagekit.io/br3koz4p0/Infectious%20Disease%20de.mp4',
     // 'https://ik.imagekit.io/br3koz4p0/Vaccines.mp4',
-    'https://ik.imagekit.io/br3koz4p0/RSV.mp4',
-    'https://ik.imagekit.io/wvpwf1oj9/RSV-de.mp4?updatedAt=1734342153975',
+    // 'https://ik.imagekit.io/br3koz4p0/RSV.mp4',
+    // 'https://ik.imagekit.io/wvpwf1oj9/RSV-de.mp4?updatedAt=1734342153975',
     'https://ik.imagekit.io/br3koz4p0/Krebsfru%CC%88herkennung-ar.mp4',
     'https://ik.imagekit.io/br3koz4p0/Krebsfru%CC%88herkennung-de.mp4',
     'https://ik.imagekit.io/br3koz4p0/new-baby.mp4?updatedAt=1737404325248',
