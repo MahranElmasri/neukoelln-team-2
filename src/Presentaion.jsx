@@ -14,13 +14,13 @@ const Presentation = () => {
   const videoUrls = [
     'https://ik.imagekit.io/br3koz4p0/mvz-intro.mp4?tr=q-65,f-auto,h-720',
     'https://d2u9ftrwwkx3r3.cloudfront.net/f64f6e34150bf993c674be288576f885/f64f6e34150bf993c674be288576f885-1080p.mp4?mute=true',
-    'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-ar.mp4?tr=q-65,f-auto,h-720',
+    // 'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-ar.mp4?tr=q-65,f-auto,h-720',
     // 'https://ik.imagekit.io/br3koz4p0/Gesundheits-Check-up-de.mp4?tr=q-65,f-auto,h-720',
     'https://d2u9ftrwwkx3r3.cloudfront.net/61be2aef2dfff239e001548a/43b45e6bedad9e3320ea893179b0786d-1080p.mp4?mute=true',
     // 'https://ik.imagekit.io/br3koz4p0/Infectious%20Disease.mp4',
     // 'https://ik.imagekit.io/br3koz4p0/Infectious%20Disease%20de.mp4',
     'https://d2u9ftrwwkx3r3.cloudfront.net/635c5450967485000915f643/736b3cf46b6ca26b96dba1dc6c47f928-1080p.mp4?mute=true',
-    'https://ik.imagekit.io/br3koz4p0/Vaccines.mp4?tr=q-65,f-auto,h-720',
+    // 'https://ik.imagekit.io/br3koz4p0/Vaccines.mp4?tr=q-65,f-auto,h-720',
     // 'https://ik.imagekit.io/br3koz4p0/RSV.mp4?tr=q-65,f-auto,h-720',
     // 'https://ik.imagekit.io/wvpwf1oj9/RSV-de.mp4?tr=q-65,f-auto,h-720',
 
